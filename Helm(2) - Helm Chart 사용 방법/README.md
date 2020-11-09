@@ -159,9 +159,20 @@ YAML 형식의 파일에 있는 설정들을 override하여 패키지 설치시 
 1. `--values(또는 -f)`: override할 YAML 파일을 지정한다. 여러 번 지정할 수 있지만 가장 오른쪽에 있는 파일이 우선시된다.
 2. `--set`: 명령줄 상에서 override를 직접 지정한다.
 
-둘 중 우선 순위는 `--values`가 더 높다.
+둘 중 우선 순위는 `--values`가 더 높다. 
 
-https://helm.sh/ko/docs/intro/using_helm/ 여기서 이어서 계속
+### `--values` 사용 방법
+
+아래 명령어는 `user0`이라는 기본 MariaDB 사용자를 생성하고, 이 사용자에게 새로 생성된 `user0db` 데이터베이스에 대한 접근 권한을 부여한다(그 외 나머지 모든 기본 설정은 해당 chart의 설정을 따르게 된다).
+
+```
+$ echo '{mariadbUser: user0, mariadbDatabase: user0db}' > config.yaml
+$ helm install -f config.yaml stable/mariadb --generate-name
+```
+
+
+
+`--set`에 명시된 오버라이드 사항들은 configMap으로 보관된다. 
 
 
 
