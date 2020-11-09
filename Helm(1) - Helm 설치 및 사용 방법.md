@@ -16,19 +16,19 @@ Kubernetest에 하나의 애플리케이션을 배포하기 위해서는 간단�
 
 이미지 출처: https://tech.osci.kr/2019/11/23/86027123/
 
-### Helm Chart
+* Helm Chart  
 Helm 패키지이다. 이 패키지에는 Kubernetest 클러스터 내에서 애플리케이션을 동작시키기 위해 필요한 모든 리소스 정의가 포함되어 있다.  
 
-### Helm Chart Repository
+* Helm Chart Repository  
 Helm Chart를 저장하고 공유하는 저장소이다.
 
-### Release
+* Release  
 Kubernetes 클러스터에서 구동되는 Chart의 인스턴스이다. 일반적으로 하나의 Chart는 동일한 클러스터 내에 여러번 설치될 수 있다. 설치할 때마다 새로운 Release가 생성된다.
 
-### Helm Client
+* Helm Client  
 Helm Server 모듈과 통신하는 역할을 한다.
 
-### Helm Server(Tiller)
+* Helm Server(Tiller)  
 Helm Client의 요청을 처리하여 Kubernetes에 Chart를 설치하고 릴리즈를 관리한다.
 
 
