@@ -7,9 +7,10 @@
 ## `helm search`: Chart 검색
 Helm은 강력한 검색 명령어를 제공한다. 아래의 두 명령어는 서로 다른 유형의 Repository Source로부터 검색하는데 사용할 수 있다.
 
-### 1. `helm search hub`
+1. `helm search hub`
 여러 저장소에있는 helm chart를 포괄하는 `[helm hub](https://artifacthub.io/)`에서 검색한다.
-### 2. `helm search repo`
+
+2. `helm search repo`
 `helm repo add`를 사용하여 local helm client에 추가한 저장소에서 검색한다. 검색은 local data 상에서 이루어지며, 퍼블릭 네트워크 접속이 필요하지 않다.
 
 ### `helm search hub` 예시  
