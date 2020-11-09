@@ -4,13 +4,13 @@
 
 # Helm Chart 기본 명령어 사용하기
 
-### helm search: Chart 검색
+## helm search: Chart 검색
 Helm은 강력한 검색 명령어를 제공한다. 아래의 두 명령어는 서로 다른 유형의 Repository Source로부터 검색하는데 사용할 수 있다.
 
 1. `helm search hub`: 여러 저장소에있는 helm chart를 포괄하는 `[helm hub](https://artifacthub.io/)`에서 검색한다.
 2. `helm search repo`: `helm repo add`를 사용하여 local helm client에 추가한 저장소에서 검색한다. 검색은 local data 상에서 이루어지며, 퍼블릭 네트워크 접속이 필요하지 않다.
 
-#### `helm search hub` 사용 예시
+### `helm search hub` 사용 예시
 `helm search hub` 명령어를 사용하면 공개적으로 사용 가능한 chart를 찾아볼 수 있다.
 ```
 $ helm search hub wordpress
@@ -20,7 +20,7 @@ https://hub.helm.sh/charts/seccurecodebox/old-w...	2.1.0        	4.0        	Ins
 https://hub.helm.sh/charts/presslabs/wordpress-...	0.10.5       	0.10.5     	Presslabs WordPress Operator Helm Chart
 ```
 
-#### `helm search repo` 사용 예시
+### `helm search repo` 사용 예시
 `helm search repo` 명령어를 사용하면 기존에 추가된 저장소에서 사용 가능한 chart를 찾아볼 수 있다.
 ```
 $ helm search repo wordpress
@@ -39,7 +39,7 @@ NAME            	CHART VERSION	APP VERSION	DESCRIPTION
 stable/wordpress	9.0.3        	5.3.2      	DEPRECATED Web publishing platform for building...
 ```
 
-### helm install: Chart 패키지 설치
+## helm install: Chart 패키지 설치
 사용하려는 Chart를 찾은 후에는 `helm install {사용자 지정 release name} {chart name}` 명령어를 사용하여 설치해준다. 
 ```
 $ helm install my-mariadb stable/mariadb
