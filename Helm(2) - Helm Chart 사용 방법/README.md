@@ -1,19 +1,19 @@
 # 목차
-* Helm Chart 기본 명령어 사용하기
-* Helm Chart 커스터마이징 해보기
+* 1. Helm Chart 기본 명령어 사용하기
+* 2. Helm Chart 커스터마이징 해보기
 
-# Helm Chart 기본 명령어 사용하기
+# 1. Helm Chart 기본 명령어 사용하기
 
-## `helm search`: Chart 검색
+## 1.1. `helm search`: Chart 검색
 Helm은 강력한 검색 명령어를 제공한다. 아래의 두 명령어는 서로 다른 유형의 Repository Source로부터 검색하는데 사용할 수 있다.
 
-1. `helm search hub`  
+1) `helm search hub`  
 여러 저장소에있는 helm chart를 포괄하는 `[helm hub](https://artifacthub.io/)`에서 검색한다.
 
-2. `helm search repo`  
+2) `helm search repo`  
 `helm repo add`를 사용하여 local helm client에 추가한 저장소에서 검색한다. 검색은 local data 상에서 이루어지며, 퍼블릭 네트워크 접속이 필요하지 않다.
 
-### `helm search hub` 예시  
+### 1.1.1. `helm search hub` 예시  
 `helm search hub` 명령어를 사용하면 공개적으로 사용 가능한 chart를 찾아볼 수 있다.
 ```
 $ helm search hub wordpress
@@ -23,7 +23,7 @@ https://hub.helm.sh/charts/seccurecodebox/old-w...	2.1.0        	4.0        	Ins
 https://hub.helm.sh/charts/presslabs/wordpress-...	0.10.5       	0.10.5     	Presslabs WordPress Operator Helm Chart
 ```
 
-### `helm search repo` 사용 예시  
+### 1.1.2. `helm search repo` 사용 예시  
 `helm search repo` 명령어를 사용하면 기존에 추가된 저장소에서 사용 가능한 chart를 찾아볼 수 있다.
 ```
 $ helm search repo wordpress
@@ -42,7 +42,7 @@ NAME            	CHART VERSION	APP VERSION	DESCRIPTION
 stable/wordpress	9.0.3        	5.3.2      	DEPRECATED Web publishing platform for building...
 ```
 
-## `helm install`: Chart 패키지 설치
+## 1.2. `helm install`: Chart 패키지 설치
 사용하려는 Chart를 찾은 후에는 `helm install {사용자 지정 release name} {chart name}` 명령어를 사용하여 설치해준다. 
 ```
 $ helm install my-mariadb stable/mariadb
@@ -106,7 +106,7 @@ statefulset.apps/my-mariadb-master   0/1     44m
 statefulset.apps/my-mariadb-slave    0/1     44m
 ```
 
-# Helm Chart 커스터마이징 해보기
+# 2. Helm Chart 커스터마이징 해보기
 Chart의 기본 구성 옵션만 사용하여, 대부분의 경우 선호하는 구성을 사용하기 위한 chart 커스터마이징 방법을 살펴보자.
 Chart에 어떤 옵션이 구성 가능한지 보기 위해 `helm show values` 명령어를 사용한다.
 
@@ -161,13 +161,22 @@ YAML 형식의 파일에 있는 설정들을 override하여 패키지 설치시 
 
 둘 중 우선 순위는 `--values`가 더 높다. 
 
-### `--values` 사용 방법
+## 2.1. `--values` 사용 방법
 
 아래 명령어는 `user0`이라는 기본 MariaDB 사용자를 생성하고, 이 사용자에게 새로 생성된 `user0db` 데이터베이스에 대한 접근 권한을 부여한다(그 외 나머지 모든 기본 설정은 해당 chart의 설정을 따르게 된다).
 
 ```
 $ echo '{mariadbUser: user0, mariadbDatabase: user0db}' > config.yaml
+
 $ helm install -f config.yaml stable/mariadb --generate-name
+WARNING: This chart is deprecated
+NAME: mariadb-1604900489
+LAST DEPLOYED: Mon Nov  9 05:41:33 2020
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+This Helm chart is deprecated
 ```
 
 
